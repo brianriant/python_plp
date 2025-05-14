@@ -4,7 +4,7 @@ This project analyzes global COVID-19 trends including cases, deaths, recoveries
 
 ## Project Structure
 
-```
+```md
 COVID-19 Global Data Tracker/
 │
 ├── data/                      # Data directory (created when running data_downloader.py)
@@ -28,16 +28,19 @@ COVID-19 Global Data Tracker/
 ## Setup & Usage
 
 1. Install required packages:
+
 ```bash
 pip install pandas numpy matplotlib requests jupyter
 ```
 
 2. Download the COVID-19 dataset:
+
 ```bash
 python data_downloader.py
 ```
 
 3. Open and run the Jupyter notebook:
+
 ```bash
 jupyter notebook covid19_analysis.ipynb
 ```
@@ -77,7 +80,7 @@ jupyter notebook covid19_analysis.ipynb
 ## Data Source
 
 This project uses the Our World in Data COVID-19 dataset:
-https://covid.ourworldindata.org/data/owid-covid-data.csv
+<https://covid.ourworldindata.org/data/owid-covid-data.csv>
 
 ## License
 
