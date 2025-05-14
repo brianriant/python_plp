@@ -1,4 +1,16 @@
+"""This module implements a smartphone class hierarchy."""
+
 class Smartphone:
+    """
+    A base class representing a generic smartphone.
+    
+    Attributes:
+        _brand (str): The brand of the smartphone
+        _model (str): The model of the smartphone
+        _battery_level (int): Current battery level as a percentage
+        _battery_capacity (int): Maximum battery capacity in mAh
+        _is_powered_on (bool): Power state of the phone
+    """
     def __init__(self, brand, model, battery_capacity):
         self._brand = brand
         self._model = model
@@ -7,32 +19,32 @@ class Smartphone:
         self._is_powered_on = False
 
     def power_button(self):
-        """
-        Returns:
-            _type_: _description_
-        """
+        """Toggle the power state of the smartphone.
 
+        Returns:
+            str: A message indicating the new power state of the phone
+        """
         self._is_powered_on = not self._is_powered_on
         return f"{self._brand} {self._model} is {'on' if self._is_powered_on else 'off'}"
 
     def charge(self, amount):
-        """
+        """Charge the smartphone's battery.
+
         Args:
-            amount (_type_): _description_
+            amount (int): The amount of charge to add to the battery level
 
         Returns:
-            _type_: _description_
+            str: A message indicating the current battery level
         """
-
         self._battery_level = min(100, self._battery_level + amount)
         return f"Battery level: {self._battery_level}%"
 
     def use_feature(self):
-        """
-        Returns:
-            _type_: _description_
-        """
+        """Use a generic feature of the smartphone.
 
+        Returns:
+            str: A message indicating the result of using the feature
+        """
         if not self._is_powered_on:
             return "Phone is powered off"
         if self._battery_level < 5:
@@ -41,31 +53,39 @@ class Smartphone:
         return "Using generic feature"
 
 class IPhone(Smartphone):
+    """A class representing an iPhone smartphone.
+    
+    This class extends the Smartphone base class and adds Face ID functionality.
     """
-    Args:
-        Smartphone (_type_): _description_
-    """
-
     def __init__(self, model, battery_capacity):
         super().__init__("Apple", model, battery_capacity)
         self._face_id_enabled = True
 
     def use_feature(self):
+        """Use Face ID authentication feature.
+
+        Returns:
+            str: A message indicating the result of using Face ID
+        """
         if super().use_feature() == "Using generic feature":
             return "Using Face ID for authentication"
         return super().use_feature()
 
 class AndroidPhone(Smartphone):
+    """A class representing an Android smartphone.
+    
+    This class extends the Smartphone base class and adds fingerprint scanner functionality.
     """
-    Args:
-        Smartphone (_type_): _description_
-    """
-
     def __init__(self, brand, model, battery_capacity):
         super().__init__(brand, model, battery_capacity)
         self._fingerprint_enabled = True
 
     def use_feature(self):
+        """Use fingerprint scanner feature.
+
+        Returns:
+            str: A message indicating the result of using the fingerprint scanner
+        """
         if super().use_feature() == "Using generic feature":
             return "Using Fingerprint Scanner"
         return super().use_feature()

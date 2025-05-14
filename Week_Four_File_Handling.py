@@ -1,5 +1,9 @@
-def process_file():
+"""
+This module provides file handling utilities to read, modify and write file contents.
+It demonstrates Python file I/O operations, error handling, and string manipulations.
+"""
 
+def process_file():
     """
     Read a file, modify its content, and write to a new file with '_modified' suffix.
 
@@ -44,10 +48,6 @@ def process_file():
 
     except FileNotFoundError:
         print(f"Error: The file '{input_filename}' was not found.")
-
-    finally:
-        input_file.close()
-        output_file.close()
 
 if __name__ == "__main__":
     process_file()
